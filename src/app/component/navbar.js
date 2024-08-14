@@ -1,5 +1,20 @@
+"use client"
+
 import React, { useState } from 'react';
 import '@/styles/globals.css';
+
+const RightArrowIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke="currentColor"
+    className="w-4 h-4"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+  </svg>
+);
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,6 +22,24 @@ const Nav = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const menuItems = [
+    'Log in',
+    'Sign Up',
+    'View Cart',
+    'Promotions',
+    'Wishlist',
+    'Become a Seller',
+    'Computer Accessories',
+    'Phones and Tablets',
+    'Health Supplements',
+    'Groceries',
+    'Fashion',
+    'Baby Products',
+    'Chat with Us',
+    'Bulk Buy',
+    'Own a Storefront',
+  ];
 
   return (
     <nav className="bg-white text-gray-800 p-4 w-screen">
@@ -52,28 +85,37 @@ const Nav = () => {
 
         {/* Sidebar */}
         <div
-          className={`fixed top-0 left-0 h-full w-64 bg-gray-800 text-white transform ${
+          className={`fixed top-12 left-0 h-full w-64 bg-white border-r border-gray-300 text-gray-800 transform ${
             isOpen ? 'translate-x-0' : '-translate-x-full'
-          } transition-transform duration-300 ease-in-out lg:translate-x-0 lg:relative lg:flex lg:w-auto lg:bg-transparent lg:text-gray-800`}
+          } transition-transform duration-300 ease-in-out hover:cursor-pointer lg:translate-x-0 lg:relative lg:flex lg:w-auto lg:bg-transparent lg:text-gray-800`}
         >
-          <div className="p-4 bg-black h-screen max-h-screen">
-            <h4 className="font-bold mb-4 text-gray2">Account</h4>
-            <a href="#" className="block py-1 text-gray2">Log in</a>
-            <a href="#" className="block py-1 text-gray2">Sign Up</a>
-            <a href="#" className="block py-1 text-gray2">View Cart</a>
-            <a href="#" className="block py-1 text-gray2">Promotions</a>
-            <a href="#" className="block py-1 text-gray2">Wishlist</a>
-            <a href="#" className="block py-1 text-gray2">Become a Seller</a>
+          <div className="p-4">
+            <h4 className="font-bold mb-4">Account</h4>
+            {menuItems.slice(0, 6).map((item, index) => (
+              <a href="#" key={index} className="block py-1 flex justify-between items-center">
+                {item}
+                <RightArrowIcon />
+              </a>
+            ))}
           </div>
 
           <div className="p-4">
             <h4 className="font-bold mb-4">All Categories</h4>
-            <a href="#" className="block py-1 text-gray2">Computer Accessories</a>
-            <a href="#" className="block py-1 text-gray2">Phones and Tablets</a>
-            <a href="#" className="block py-1 text-gray2">Health Supplements</a>
-            <a href="#" className="block py-1 text-gray2">Groceries</a>
-            <a href="#" className="block py-1 text-gray2">Fashion</a>
-            <a href="#" className="block py-1 text-gray2">Become a Seller</a>
+            {menuItems.slice(6, 12).map((item, index) => (
+              <a href="#" key={index} className="block py-1 flex justify-between items-center">
+                {item}
+                <RightArrowIcon />
+              </a>
+            ))}
+          </div>
+
+          <div className="p-4 border-t-2 border-dashed border-yellow-400">
+            {menuItems.slice(12, 15).map((item, index) => (
+              <a href="#" key={index} className="block py-1 flex justify-between items-center">
+                {item}
+                <RightArrowIcon />
+              </a>
+            ))}
           </div>
         </div>
       </div>

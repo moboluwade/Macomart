@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "@/styles/globals.css";
+import { Nunito } from "next/font/google";
+import '@/styles/globals.css';
+import Footer from "@/app/component/footer";  
+import NavBar from '@/app/component/navbar';
 
-const inter = Inter({ subsets: ["latin"] });
+const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Macomart",
-  description: "ecommerce ",
+  description: "ecommerce",
 };
 
 export default function RootLayout({
@@ -15,8 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html  lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en">
+      <body className={`${nunito.className} flex flex-col min-h-screen`}>
+        <NavBar />
+        <div className="flex-grow">{children}</div>
+        <Footer />
+      </body>
     </html>
   );
 }
