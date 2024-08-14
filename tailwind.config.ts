@@ -9,19 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: 'FBBC04', 
+        primary: '#FBBC04', 
         secondary: '#9333EA', 
-        accent: 'F7F7F7', 
-        background: 'FFFFFF', 
-        // text: '#111827', 
-        red: 'FF0000',
-        gray: '8C8C8C',
-        gray2: '525252',
-        offwhite: 'D9D9D9',
-       
+        accent: '#F7F7F7', 
+        background: '#FFFFFF', 
+        red: '#FF0000',
+        gray: '#8C8C8C',
+        gray2: '#525252',
+        offwhite: '#D9D9D9',
+        'primary-dark': '#F9A800',  // Add dark variant if needed
       },
     },
   },
   plugins: [],
 };
+
 export default config;
