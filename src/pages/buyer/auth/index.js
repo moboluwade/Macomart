@@ -1,9 +1,9 @@
-// src/pages/buyer/auth/index.js
 
 import Link from 'next/link';
 import { useState } from 'react';
 import { UserIcon, PhoneIcon, EnvelopeIcon, LockClosedIcon } from '../../../app/component/icons';
 import '../../../styles/globals.css';
+import RootLayout from '../../../app/layout';
 
 
 
@@ -29,13 +29,14 @@ export default function Register() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+   <RootLayout>
+     <div className="flex items-center justify-center ">
       <div className="w-full max-w-md p-8 bg-white shadow-md rounded-lg">
         <div className='text-center'>
           <h2 className="text-2xl font-bold mb-6 text-gray">Create Account</h2>
           <p className='text-gray mb-4'>Welcome to Macomart! Join our community and start your seamless shopping experience. Fill out the form below.</p>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 relative">
           <div className="relative">
             <label htmlFor="Name" className="block text-sm font-medium text-gray-700">Full Name</label>
             <UserIcon className="w-5 h-5 text-gray absolute left-3 top-2/3 transform -translate-y-1/2" />
@@ -125,7 +126,7 @@ export default function Register() {
 
           <button
             type="submit"
-            className="w-full px-4 py-2 bg-primary text-white font-semibold rounded-md shadow-sm hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+            className="w-full px-4 py-2 bg-gray text-white font-semibold rounded-md shadow-sm hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
           >
             Create Account
           </button>
@@ -133,11 +134,12 @@ export default function Register() {
           <div className="mt-4 text-center">
             <p className="text-sm text-gray-600">
               Already have an account?{' '}
-              <Link href="/login" className="font-medium text-primary hover:text-primary-dark">Sign In</Link>
+              <Link href="auth/login" className="font-medium text-primary hover:text-primary-dark">Sign In</Link>
             </p>
           </div>
         </form>
       </div>
     </div>
+   </RootLayout>
   );
 }

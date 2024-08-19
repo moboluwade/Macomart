@@ -1,7 +1,20 @@
-"use client"
+"use client"; // Ensure this component is run on the client side
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '@/styles/globals.css';
+import {
+  UserIcon,
+  PhoneIcon,
+  ArrowRightOnRectangleIcon,
+  HeartIcon,
+  ShoppingBagIcon,
+  ShoppingCartIcon,
+  PresentationChartBarIcon,
+  ArrowRightCircleIcon,
+  ExclamationTriangleIcon,
+  EnvelopeIcon,
+  LockClosedIcon,
+} from '@heroicons/react/24/outline';
 
 const RightArrowIcon = () => (
   <svg
@@ -24,12 +37,12 @@ const Nav = () => {
   };
 
   const menuItems = [
-    'Log in',
-    'Sign Up',
-    'View Cart',
-    'Promotions',
-    'Wishlist',
-    'Become a Seller',
+    { name: 'Log in', icon: UserIcon },
+    { name: 'Sign Up', icon: LockClosedIcon },
+    { name: 'View Cart', icon: ShoppingCartIcon },
+    { name: 'Promotions', icon: PresentationChartBarIcon },
+    { name: 'Wishlist', icon: HeartIcon },
+    { name: 'Become a Seller', icon: ShoppingBagIcon },
     'Computer Accessories',
     'Phones and Tablets',
     'Health Supplements',
@@ -42,7 +55,7 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="bg-white text-gray-800 p-4 w-screen">
+    <nav className="bg-white text-gray p-4 w-screen">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-2xl font-bold">Macomart</div>
 
@@ -85,15 +98,16 @@ const Nav = () => {
 
         {/* Sidebar */}
         <div
-          className={`fixed top-12 left-0 h-full w-64 bg-white border-r border-gray-300 text-gray-800 transform ${
+          className={`fixed top-11 left-0 h-full w-64 bg-white text-gray z-40 transform ${
             isOpen ? 'translate-x-0' : '-translate-x-full'
-          } transition-transform duration-300 ease-in-out hover:cursor-pointer lg:translate-x-0 lg:relative lg:flex lg:w-auto lg:bg-transparent lg:text-gray-800`}
+          } transition-transform duration-300 ease-in-out`}
         >
           <div className="p-4">
             <h4 className="font-bold mb-4">Account</h4>
             {menuItems.slice(0, 6).map((item, index) => (
               <a href="#" key={index} className="block py-1 flex justify-between items-center">
-                {item}
+                <item.icon className="w-5 h-5 mr-1" />
+                {item.name}
                 <RightArrowIcon />
               </a>
             ))}

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-gray-200 min-h-[10vh] py-60">
+    <footer className="bg-primary text-white min-h-[3vh] py-1">
       <div className="container mx-auto flex flex-col items-center h-full">
         
         {/* Centralized App Promotion */}
