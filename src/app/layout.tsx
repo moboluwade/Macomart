@@ -15,7 +15,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={nunito.className}>
         <div className="flex flex-col min-h-screen">
-          {/* <TopBar /> */}
+        <div className="hidden lg:block">
+            <TopBar />
+          </div>
           <NavBar />
           <main className="flex-grow">
             {children}

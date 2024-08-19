@@ -5,6 +5,7 @@
 import products from '@/pages/db/products'; // Adjust the path if necessary
 import Image from 'next/image';
 import { useState } from 'react';
+import BillBoard from '../../public/billboard.png'
 // import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Import arrow icons
 
 // Define the type for the product data
@@ -45,7 +46,29 @@ const ProductsPage = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Products</h1>
+
+<div className="w-full mx-3 my-5">
+      <Image
+        src={BillBoard}
+        alt="promotion"
+        layout="responsive"
+        width={1200} // Set the actual width of the image
+        height={800} // Set the actual height of the image
+        className="object-cover" // Adjusts the image to cover the entire container
+      />
+    </div>
+
+        <div className="flex flex-col lg:flex-row lg:space-x-4  lg:space-between">
+      <button className="p-4   flex items-center justify-center hover:text-primary w-full lg:w-auto">
+        <h1 className="text-xl lg:text-2xl font-bold">Products</h1>
+      </button>
+
+      <button className="p-4   flex items-center justify-center hover:text-primary w-full lg:w-auto">
+        <h1 className="text-xl lg:text-2xl font-bold">Recommended for you</h1>
+      </button>
+    </div>
+
+     
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {paginatedProducts.map((product: Product) => (
           <div key={product.product_id} className="border p-4 rounded-lg shadow-lg">

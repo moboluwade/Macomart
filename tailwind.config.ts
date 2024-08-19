@@ -17,7 +17,8 @@ const config: Config = {
         gray: '#8C8C8C',
         gray2: '#525252',
         offwhite: '#D9D9D9',
-        'primary-dark': '#F9A800',  // Add dark variant if needed
+        primaryDark: '#F9A800',
+        yellowblack: 'rgba(255, 233, 0, 0.5)', 
       },
     },
   },

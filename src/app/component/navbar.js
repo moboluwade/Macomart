@@ -55,11 +55,23 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="bg-white text-gray p-4 w-screen">
+    <nav className="bg-white text-gray p-4 w-full">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-2xl font-bold">Macomart</div>
+        {/* Logo */}
+        <div className=" lg:hidden text-2xl font-bold">Macomart</div>
 
-        {/* Hamburger Icon */}
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex  items-center text-white bg-black shadow-md py-2 px-10  justify-between w-full">
+        <a href="#" className="text-white hover:text-yellow-500">All Categories</a>
+          <a href="#" className="text-white hover:text-yellow-500">Computer Accessories</a>
+          <a href="#" className="text-white hover:text-yellow-500">Phones and Tablets</a>
+          <a href="#" className="text-white hover:text-yellow-500">Health Supplements</a>
+          <a href="#" className="text-white hover:text-yellow-500">Groceries</a>
+          <a href="#" className="text-white hover:text-yellow-500">Fashion</a>
+          <a href="#" className="text-white hover:text-yellow-500">Baby Products</a>
+        </div>
+
+        {/* Mobile Hamburger Icon */}
         <div className="lg:hidden flex items-center">
           <button className="text-gray-800 mx-5" onClick={toggleMenu}>
             {isOpen ? (
@@ -96,11 +108,11 @@ const Nav = () => {
           </button>
         </div>
 
-        {/* Sidebar */}
+        {/* Sidebar for Mobile */}
         <div
           className={`fixed top-11 left-0 h-full w-64 bg-white text-gray z-40 transform ${
             isOpen ? 'translate-x-0' : '-translate-x-full'
-          } transition-transform duration-300 ease-in-out`}
+          } transition-transform duration-300 ease-in-out lg:hidden`}
         >
           <div className="p-4">
             <h4 className="font-bold mb-4">Account</h4>
