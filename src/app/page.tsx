@@ -2,7 +2,7 @@
 
 "use client";
 
-import products from '@/pages/db/products'; // Adjust the path if necessary
+import product from '@/pages/db/products'; // Adjust the path if necessary
 import Image from 'next/image';
 import { useState } from 'react';
 import BillBoard from '../../public/billboard.png'
@@ -31,10 +31,10 @@ const ProductsPage = () => {
   const productsPerPage = 10; // Number of products per page
 
   // Calculate the total number of pages
-  const totalPages = Math.ceil(products.length / productsPerPage);
+  const totalPages = Math.ceil(product.length / productsPerPage);
 
   // Slice the array to get the products for the current page
-  const paginatedProducts = products.slice(
+  const paginatedProducts = product.slice(
     (currentPage - 1) * productsPerPage,
     currentPage * productsPerPage
   );
@@ -78,19 +78,20 @@ const ProductsPage = () => {
                 alt={product.product_name}
                 width={200}
                 height={200}
-                className="object-cover"
+                className="object-cover"igma
               />
             </div>
             <h2 className="text-lg font-semibold mb-2">{product.product_name}</h2>
             <p className="text-sm text-gray-600 mb-2">{product.vendor_name}</p>
             <p className="text-xl font-bold mb-2">${product.sale_price.toFixed(2)}</p>
-            <p className="text-gray-500 mb-2">{product.description}</p>
-            <div className="flex items-center mb-2">
+            {/* <p className="text-gray-500 mb-2">{product.description}</p> */}
+            {/* <div className="flex items-center mb-2">
               <span className="text-yellow-500">Rating: {product.rating}★</span>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
+
       <div className="flex justify-center mt-4">
         <nav>
           <ul className="flex items-center space-x-2">
