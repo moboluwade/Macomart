@@ -1,94 +1,69 @@
-// app/products/page.tsx
-
-"use client";
-
-import product from '@/pages/db/products'; // Adjust the path if necessary
+// src/pages/buyer/product/index.js
+"use client"
+import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import BillBoard from '../../public/billboard.png'
-// import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Import arrow icons
-
-// Define the type for the product data
-type Product = {
-  product_id: number;
-  product_name: string;
-  vendor_name: string;
-  price: number;
-  quantity_available: number;
-  category: string;
-  description: string;
-  rating: number;
-  shipping_cost: number;
-  shipping_time: number;
-  discount_percentage: number;
-  sale_price: number;
-  Thumbnail: string;
-  images: { url: string; alt: string }[];
-};
+import product from '@/pages/db/products'; 
 
 const ProductsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 10; // Number of products per page
+  const productsPerPage = 10;
 
-  // Calculate the total number of pages
   const totalPages = Math.ceil(product.length / productsPerPage);
 
-  // Slice the array to get the products for the current page
   const paginatedProducts = product.slice(
     (currentPage - 1) * productsPerPage,
     currentPage * productsPerPage
   );
 
-  // Handle page changes
-  const handlePageChange = (page: number) => {
+  const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
   return (
     <div className="container mx-auto p-4">
+      <div className="w-full mx-3 my-5">
+        <Image
+          src={BillBoard}
+          alt="promotion"
+          layout="responsive"
+          width={1200}
+          height={800}
+          className="object-cover"
+        />
+      </div>
 
-<div className="w-full mx-3 my-5">
-      <Image
-        src={BillBoard}
-        alt="promotion"
-        layout="responsive"
-        width={1200} // Set the actual width of the image
-        height={800} // Set the actual height of the image
-        className="object-cover" // Adjusts the image to cover the entire container
-      />
-    </div>
+      <div className="flex flex-col lg:flex-row lg:space-x-4 lg:space-between">
+        <button className="p-4 flex items-center justify-center hover:text-primary w-full lg:w-auto">
+          <h1 className="text-xl lg:text-2xl font-bold">Products</h1>
+        </button>
+        <button className="p-4 flex items-center justify-center hover:text-primary w-full lg:w-auto">
+          <h1 className="text-xl lg:text-2xl font-bold">Recommended for you</h1>
+        </button>
+      </div>
 
-        <div className="flex flex-col lg:flex-row lg:space-x-4  lg:space-between">
-      <button className="p-4   flex items-center justify-center hover:text-primary w-full lg:w-auto">
-        <h1 className="text-xl lg:text-2xl font-bold">Products</h1>
-      </button>
-
-      <button className="p-4   flex items-center justify-center hover:text-primary w-full lg:w-auto">
-        <h1 className="text-xl lg:text-2xl font-bold">Recommended for you</h1>
-      </button>
-    </div>
-
-     
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {paginatedProducts.map((product: Product) => (
-          <div key={product.product_id} className="border p-4 rounded-lg shadow-lg">
-            <div className="mb-4">
-              <Image
-                src={product.Thumbnail}
-                alt={product.product_name}
-                width={200}
-                height={200}
-                className="object-cover"igma
-              />
+        {paginatedProducts.map((product) => (
+          <Link key={product.product_id} href={`/buyer/product/${product.product_id}`} passHref>
+            <div className="border p-4 rounded-lg shadow-lg block">
+              <div className="mb-4">
+                <Image
+                  src={product.Thumbnail}
+                  alt={product.product_name}
+                  width={200}
+                  height={200}
+                  className="object-cover"
+                />
+              </div>
+              <h2 className="text-lg font-semibold mb-2">{product.product_name}</h2>
+              <p className="text-sm text-gray-600 mb-2">{product.vendor_name}</p>
+              <p className="text-xl font-bold mb-2">${product.sale_price.toFixed(2)}</p>
+              <div className="flex items-center mb-2">
+                <span className="text-yellow-500">Rating: {product.rating}★</span>
+              </div>
             </div>
-            <h2 className="text-lg font-semibold mb-2">{product.product_name}</h2>
-            <p className="text-sm text-gray-600 mb-2">{product.vendor_name}</p>
-            <p className="text-xl font-bold mb-2">${product.sale_price.toFixed(2)}</p>
-            {/* <p className="text-gray-500 mb-2">{product.description}</p> */}
-            {/* <div className="flex items-center mb-2">
-              <span className="text-yellow-500">Rating: {product.rating}★</span>
-            </div> */}
-          </div>
+          </Link>
         ))}
       </div>
 
