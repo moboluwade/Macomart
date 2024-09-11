@@ -15,13 +15,13 @@
         "sale_price": 357.79,
         "Thumbnail": "http://dummyimage.com/118x100.png/ff4444/ffffff",
         "images": [
-            {},
-            {},
-            {},
-            {},
-            {},
-            {},
-            {}
+            {"http://dummyimage.com/118x100.png/ff4444/ffffff"},
+            {"http://dummyimage.com/118x100.png/ff4444/ffffff"},
+            {"http://dummyimage.com/118x100.png/ff4444/ffffff"},
+            {"http://dummyimage.com/118x100.png/ff4444/ffffff"},
+            {"http://dummyimage.com/118x100.png/ff4444/ffffff""http://dummyimage.com/118x100.png/ff4444/ffffff"},
+            {"http://dummyimage.com/118x100.png/ff4444/ffffff"},
+            {"http://dummyimage.com/118x100.png/ff4444/ffffff"}
         ]
     },
     {
