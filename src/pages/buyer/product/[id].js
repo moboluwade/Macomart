@@ -1,8 +1,10 @@
+"use client"
+
 import { useRouter } from 'next/router';
-import product from '../../db/products'; // Adjust the path if necessary
-import RootLayout from '../../layout'; // Adjust path if necessary
+import product from '../../db/products'; 
+import RootLayout from '../../layout'; 
 import CustomCarousel from '../../component/carousel'; // Adjust path if necessary
-import { useCart } from '../../../context/CartContext'; // Adjust path if necessary
+// import { useCart } from '../../../context/CartContext'; // Adjust path if necessary
 
 const StarRating = ({ rating }) => {
   const totalStars = 5;
@@ -69,7 +71,7 @@ const ProductDetailPage = ({ productDetail }) => {
             <div className="flex space-x-4 mt-4">
               <button
                 className="bg-blue-500 text-white px-4 py-2 rounded"
-                onClick={handleAddToCart}
+                // onClick={handleAddToCart}
               >
                 Add to Cart
               </button>

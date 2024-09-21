@@ -1,12 +1,9 @@
-
-
+"use client";
 import Link from 'next/link';
 import { useState } from 'react';
 import { UserIcon, PhoneIcon, EnvelopeIcon, LockClosedIcon } from '../../../app/component/icons';
 import '../../../styles/globals.css';
 import RootLayout from '../../../app/layout';
-
-
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -30,8 +27,7 @@ export default function Register() {
   };
 
   return (
- <RootLayout>
-       <div className="flex justify-center ">
+    <div className="flex justify-center m-3 ">
       <div className="w-full max-w-md p-8 bg-white shadow-md rounded-lg">
         <div className='text-center'>
           <h2 className="text-2xl font-bold mb-6 text-gray">Log in</h2>
@@ -84,6 +80,5 @@ export default function Register() {
         </form>
       </div>
     </div>
- </RootLayout>
   );
 }

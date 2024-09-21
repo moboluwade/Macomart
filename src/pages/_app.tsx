@@ -6,9 +6,7 @@ import RootLayout from '../app/layout';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <RootLayout>
-      <CartProvider>
         <Component {...pageProps} />
-      </CartProvider>
     </RootLayout>
   );
 }

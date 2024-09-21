@@ -1,15 +1,16 @@
 import { LogoIcon, ShoppingCartIcon, UserIcon } from "./icons";
 import Search from "./search";
 import { ArrowRightCircleIcon} from '@heroicons/react/24/solid';
+import Link from "next/link";
 
 const TopBar = () => {
     return (
         <nav className="bg-white shadow-md py-2 px-4 flex items-center justify-between ">
             {/* Logo and Brand */}
-            <div className="flex items-center space-x-4">
-                <LogoIcon className="h-8 w-8" />
+            <Link href="/" className="flex items-center space-x-4">
+                 <LogoIcon className="h-8 w-8" />
                 <h3 className="text-xl font-semibold">Macomart</h3>
-            </div>
+            </Link>
 
             {/* Search Bar */}
             <div className="flex flex-grow max-w-lg mx-4">

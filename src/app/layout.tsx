@@ -10,19 +10,18 @@ const nunito = Nunito({ subsets: ['latin'] });
 
 export default function RootLayout({ children }) {
   return (
-    <Provider store={store}>
-      <html lang="en">
-        <body className={nunito.className}>
-          <div className="flex flex-col min-h-screen">
-            <div className="hidden lg:block">
-              <TopBar />
-            </div>
-            <NavBar />
-            <main className="flex-grow">{children}</main>
-            <Footer />
+   
+      <div className={nunito.className}>
+        <div className="flex flex-col min-h-screen">
+          {/* TopBar only for larger screens */}
+          <div className="hidden lg:block">
+            <TopBar />
           </div>
-        </body>
-      </html>
-    </Provider>
+          <NavBar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </div>
+      </div>
+    
   );
 }
